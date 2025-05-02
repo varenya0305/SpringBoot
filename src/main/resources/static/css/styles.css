@@ -1,0 +1,97 @@
+body {
+		           font-family: Arial, sans-serif;
+		            display: flex;
+		            flex-direction: column;
+		            align-items: center;
+		            justify-content: center;
+		            height: 100vh;
+		            background-color: #f4f4f4;
+		            text-align: center;
+		        }
+
+		        .menu {
+		            display: flex;
+		            justify-content: center;
+		            background-color: #007bff;
+		            padding: 10px;
+		            width: 100%;
+		            position: fixed;
+		            top: 0;
+		            left: 0;
+		        }
+
+		        .menu a {
+		            color: white;
+		            text-decoration: none;
+		            padding: 10px 20px;
+		            font-size: 16px;
+		        }
+
+		        .menu a:hover {
+		            background-color: #0056b3;
+		            border-radius: 4px;
+		        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, textarea, button {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+           /* resize: none;*/
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        img {
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .reset-btn {
+            background-color: lightgray;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        .reset-btn:hover {
+            background-color: darkgray;
+        }

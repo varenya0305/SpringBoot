@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+    <title>Pixabay</title>
+    <script>
+		function resetForm() {
+		    let form = document.querySelector("form");
+		    form.reset();
+			document.getElementById("imageType").selectedIndex = 0;
+			document.getElementById("orientation").selectedIndex = 0;
+			document.getElementById("category").selectedIndex = 0;
+			document.getElementById("query").value = "";
+			document.getElementById("imageDisplay").src = "http://localhost:1900/images/dummy-image.png";
+		}
+
+    </script>
+</head>
+<body>
+	<div th:replace="~{fragments/menu :: menu}"></div>
+
+    <h1>Pixabay Picture</h1>
+
+    <div class="form-container">
+        <form th:action="@{/api/pixabayImageSearch}" th:object="${pixabaySearch}" method="post">
+            <div class="form-row">
+                <div>
+                    <label for="imageType">Image Category</label>
+                    <select id="imageType" th:field="*{imageType}">
+                        <option value="">Select Image Category</option>
+                        <option value="all">All</option>
+                        <option value="photo">Photo</option>
+                        <option value="illustration">Illustration</option>
+                        <option value="vector">Vector</option>
+                    </select>
+                </div>
+				<div>
+					<label for="orientation">Image Orientation</label>
+					                   <select id="orientation" th:field="*{orientation}">
+					                       <option value="">Select Image Orientation</option>
+					                       <option value="all">All</option>
+					                       <option value="horizontal">Horizontal</option>
+					                       <option value="vertical">Vertical</option>
+					                   </select>
+				</div>
+				
+				<div>
+				    <label for="category">Category</label>
+				    <select id="category" th:field="*{category}">
+				        <option value="">Select Category</option>
+				        <option value="backgrounds">Backgrounds</option>
+				        <option value="fashion">Fashion</option>
+				        <option value="nature">Nature</option>
+				        <option value="science">Science</option>
+				        <option value="education">Education</option>
+				        <option value="feelings">Feelings</option>
+				        <option value="health">Health</option>
+				        <option value="people">People</option>
+				        <option value="religion">Religion</option>
+				        <option value="places">Places</option>
+				        <option value="animals">Animals</option>
+				        <option value="industry">Industry</option>
+				        <option value="computer">Computer</option>
+				        <option value="food">Food</option>
+				        <option value="sports">Sports</option>
+				        <option value="transportation">Transportation</option>
+				        <option value="travel">Travel</option>
+				        <option value="buildings">Buildings</option>
+				        <option value="business">Business</option>
+				        <option value="music">Music</option>
+				    </select>
+				</div>
+
+									   
+									 
+                <div>
+                    <label for="query">Search</label>
+                    <textarea id="query" th:field="*{query}" rows="1" style="height:auto;"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+                <button type="button" class="reset-btn" onclick="resetForm()">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <img id="imageDisplay" th:src="${imageUrl}" width="30%" height="40%" alt="Pixabay Image">
+
+</body>
+</html>
